@@ -37,5 +37,11 @@ namespace KnowledgeApi.Controllers
         {
             return Ok(await this._articleService.FindArticle(ArticleName));
         }
+
+        [HttpGet("LastArticle")]
+        public virtual async Task<ActionResult> LastArticle()
+        {
+            return Ok(await this._articleService.LastArticle());
+        }
     }
 }

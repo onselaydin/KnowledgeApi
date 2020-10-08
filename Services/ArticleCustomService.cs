@@ -67,6 +67,26 @@ namespace KnowledgeApi.Services
                                  }).ToListAsync();
             return article;
         }
+        public async Task<Article> LastArticle()
+        {
+            var article = await (from a in _article.AsQueryable()
+                                 select new Article
+                                 {
+                                     Id = a.Id,
+                                     Title = a.Title,
+                                     Content = a.Content,
+                                     Description = a.Description,
+                                     Topics = a.Topics,
+                                     Url = a.Url,
+                                     ArticleType = a.ArttypeDetail.First().Title,
+                                     Image = a.Image,
+                                     Dates = a.Dates
+                                 })
+                                 .OrderByDescending(x=>x.Dates)
+                                 .Take(1)
+                                 .FirstOrDefaultAsync();
+            return article;
+        }
 
         public virtual async Task<Article> Create(Article model)
         {
