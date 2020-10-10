@@ -17,7 +17,7 @@ namespace KnowledgeApi.Models
         [BsonElement("subject")]
         public string Subject { get; set; }
 
-        [BsonElement("message")]
+        [BsonElement("msg")]
         public string Msg { get; set; }
 
         [BsonElement("date")]

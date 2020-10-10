@@ -7,7 +7,7 @@ namespace KnowledgeApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class MessageController :  BaseMongoController<Article>
+    public class MessageController :  BaseMongoController<Message>
     {
         //test deneme
         public MessageController(MessageRepository messageRepository) : base(messageRepository)
