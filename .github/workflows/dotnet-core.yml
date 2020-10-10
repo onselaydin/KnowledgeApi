@@ -27,7 +27,7 @@ jobs:
       run: |
         dotnet publish --configuration Release -o outputDirectory
     - name: Push code to Digital Ocean
-      uses: onselaydin/scp-action@main
+      uses: onselaydin/KnowledgeApi@main
       env:
         HOST: ${{ secrets.REMOTE_HOST }}
         USERNAME: ${{ secrets.REMOTE_USER }}
