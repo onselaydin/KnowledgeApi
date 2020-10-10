@@ -27,7 +27,7 @@ jobs:
       run: |
         dotnet publish --configuration Release -o outputDirectory
     - name: Push code to Digital Ocean
-      uses: ./.github/workflows/dotnet-core
+      uses: actions/checkout@v2
       with:
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
