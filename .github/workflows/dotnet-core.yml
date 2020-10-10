@@ -23,3 +23,16 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: dotnet publish 
+      run: |
+        dotnet publish --configuration Release -o outputDirectory
+    - name: Push code to Digital Ocean
+      uses: oncell/scp-action@master
+      env:
+        HOST: ${{ secrets.REMOTE_HOST }}
+        USERNAME: ${{ secrets.REMOTE_USER }}
+        PORT: ${{ secrets.REMOTE_PORT }}
+        KEY: ${{ secrets.PASSWORD }}
+      with:
+        source: "outputDirectory"
+        target: "/var/www/okipu"
