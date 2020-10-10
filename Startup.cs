@@ -33,7 +33,7 @@ namespace KnowledgeApi
             string mongoConnectionString = this.Configuration.GetConnectionString("MongoConnectionString");
             services.AddTransient(s => new ArticleRepository(mongoConnectionString, "knowledgedb", "articles"));
             services.AddTransient(s => new ArtTypeRepository(mongoConnectionString, "knowledgedb", "arttypes"));
-
+            services.AddTransient(s => new MessageRepository(mongoConnectionString, "knowledgedb", "messages"));
             //services.AddTransient(s => new ArticleCustomService(mongoConnectionString, "knowledgedb", "articles"));
             services.Configure<ConnectionStrings>(Configuration.GetSection(nameof(ConnectionStrings)));
             services.AddSingleton<IDatabaseSettings>(sp => sp.GetRequiredService<IOptions<ConnectionStrings>>().Value);
