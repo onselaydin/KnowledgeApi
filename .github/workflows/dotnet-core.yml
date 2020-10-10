@@ -28,10 +28,11 @@ jobs:
         dotnet publish --configuration Release -o outputDirectory
     - name: Push code to Digital Ocean
       uses: actions/checkout@v2
+      env:
+        HOST: ${{ secrets.REMOTE_HOST }}
+        USERNAME: ${{ secrets.REMOTE_USER }}
+        PORT: ${{ secrets.REMOTE_PORT }}
+        PASSPHRASE: ${{ secrets.PASSWORD }}
       with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: ${{ secrets.REMOTE_USER }}
-        port: ${{ secrets.REMOTE_PORT }}
-        passphrase: ${{ secrets.PASSWORD }}
         source: "outputDirectory"
         target: "/var/www/okipuapi"
