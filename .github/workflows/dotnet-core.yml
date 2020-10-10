@@ -32,6 +32,6 @@ jobs:
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         port: ${{ secrets.REMOTE_PORT }}
-        key: ${{ secrets.PASSWORD }}
+        passphrase: ${{ secrets.PASSWORD }}
         source: "outputDirectory"
         target: "/var/www/okipu"
