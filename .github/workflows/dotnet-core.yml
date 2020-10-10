@@ -28,11 +28,10 @@ jobs:
         dotnet publish --configuration Release -o outputDirectory
     - name: Push code to Digital Ocean
       uses: onselaydin/KnowledgeApi@main
-      env:
-        HOST: ${{ secrets.REMOTE_HOST }}
-        USERNAME: ${{ secrets.REMOTE_USER }}
-        PORT: ${{ secrets.REMOTE_PORT }}
-        KEY: ${{ secrets.PASSWORD }}
       with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        port: ${{ secrets.REMOTE_PORT }}
+        key: ${{ secrets.PASSWORD }}
         source: "outputDirectory"
         target: "/var/www/okipu"
