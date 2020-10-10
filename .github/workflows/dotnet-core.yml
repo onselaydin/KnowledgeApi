@@ -33,5 +33,5 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         port: ${{ secrets.REMOTE_PORT }}
         passphrase: ${{ secrets.PASSWORD }}
-        source: "."
-        target: "/var/www/okipu"
+        source: "outputDirectory"
+        target: "/var/www/okipuapi"
