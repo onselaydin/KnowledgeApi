@@ -27,7 +27,7 @@ jobs:
       run: |
         dotnet publish --configuration Release -o outputDirectory
     - name: Push code to Digital Ocean
-      uses: onselaydin/KnowledgeApi@main
+      uses: ./.github/workflows/dotnet-core
       with:
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
