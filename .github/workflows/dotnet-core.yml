@@ -35,3 +35,6 @@ jobs:
         PASSWORD: ${{ secrets.PASSWORD }}
         SOURCE: "outputDirectory"
         TARGET: "/var/www/okipuapi"
+        script: |
+          whoami
+          ls -al
