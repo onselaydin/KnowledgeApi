@@ -27,7 +27,7 @@ jobs:
       run: |
         dotnet publish --configuration Release -o outputDirectory
     - name: Push code to Digital Ocean
-      uses: appleboy/ssh-action@master
+      uses: appleboy/scp-action@master
       env:
         HOST: ${{ secrets.REMOTE_HOST }}
         USERNAME: ${{ secrets.REMOTE_USER }}
@@ -35,6 +35,3 @@ jobs:
         PASSWORD: ${{ secrets.PASSWORD }}
         SOURCE: "outputDirectory"
         TARGET: "/var/www/okipuapi"
-        script: |
-          whoami
-          ls -al
