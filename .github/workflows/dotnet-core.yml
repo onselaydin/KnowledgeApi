@@ -33,5 +33,5 @@ jobs:
         USERNAME: ${{ secrets.REMOTE_USER }}
         PORT: ${{ secrets.REMOTE_PORT }}
         PASSWORD: ${{ secrets.PASSWORD }}
-        SOURCE: "outputDirectory"
+        SOURCE: "."
         TARGET: "/var/www/okipuapi"
