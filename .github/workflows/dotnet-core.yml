@@ -27,7 +27,7 @@ jobs:
       run: |
         dotnet publish --configuration Release -o outputDirectory
     - name: Push code to Digital Ocean
-      uses: easingthemes/ssh-deploy@v2.1.5 #onselaydin/KnowledgeApi@main #actions/checkout@v2
+      uses: appleboy/ssh-action@master
       env:
         HOST: ${{ secrets.REMOTE_HOST }}
         USERNAME: ${{ secrets.REMOTE_USER }}
