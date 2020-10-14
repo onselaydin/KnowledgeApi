@@ -78,7 +78,8 @@ namespace KnowledgeApi.Services
                                      Description = a.Description,
                                      Topics = a.Topics,
                                      Url = a.Url,
-                                     ArticleType = a.ArttypeDetail.First().Title,
+                                     //ArticleType = a.ArttypeDetail.First().Title,
+                                     ArttypeDetail= a.ArttypeDetail,
                                      Image = a.Image,
                                      Dates = a.Dates
                                  })
