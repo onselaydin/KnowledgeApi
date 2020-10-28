@@ -82,7 +82,7 @@ namespace KnowledgeApi.Services
                                      Image = a.Image,
                                      Dates = a.Dates
                                  })
-                                 .OrderByDescending(x=>x.Dates)
+                                 .OrderByDescending(a=>a.Dates)
                                  .Take(1)
                                  .FirstOrDefaultAsync();
             return article;
