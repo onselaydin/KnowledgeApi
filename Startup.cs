@@ -46,11 +46,11 @@ namespace KnowledgeApi
         {
 
             app.UseCors(bldr => bldr
-           .WithOrigins("http://okipu.net","http://localhost:8080")
-           //.AllowAnyOrigin()
-           .WithMethods("GET", "POST", "PUT", "DELETE")
+           //.WithOrigins("http://okipu.net","http://localhost:8080")
+           .AllowAnyOrigin()
+           //.WithMethods("GET", "POST", "PUT", "DELETE")
            .AllowAnyHeader()
-           //.AllowAnyMethod()
+           .AllowAnyMethod()
            );
 
 
