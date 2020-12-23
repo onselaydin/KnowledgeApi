@@ -31,7 +31,16 @@ namespace KnowledgeApi.Controllers
         [HttpPost]
         public virtual async Task<ActionResult> AddModel(TModel model)
         {
-            return Ok(await this.BaseMongoRepository.Create(model));
+            try
+            {
+                return Ok(await this.BaseMongoRepository.Create(model));
+            }
+            catch (Exception ex)
+            {
+
+                return Ok(ex.Message);
+            }
+            
         }
         //[HttpPost]
         //public virtual async Task<ActionResult> AddNested(TModel model, TModel NModel)
