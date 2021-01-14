@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using KnowledgeApi.Models;
+﻿using KnowledgeApi.Models;
 using KnowledgeApi.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace KnowledgeApi.Controllers
 {
@@ -19,6 +18,7 @@ namespace KnowledgeApi.Controllers
             _articleService = articleService;
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("GetAll")]
         public async Task<ActionResult> GetAll()
         {
@@ -26,11 +26,14 @@ namespace KnowledgeApi.Controllers
             return Ok(articles);
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost("AddModel")]
         public virtual async Task<ActionResult> AddModel(Article model)
         {
             return Ok(await this._articleService.Create(model));
         }
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("FindArticle")]  ///{ArticleName}
         //[Route("FindArticle/{ArticleName}")]
         public virtual async Task<ActionResult> FindArticle(string ArticleName)
@@ -38,6 +41,7 @@ namespace KnowledgeApi.Controllers
             return Ok(await this._articleService.FindArticle(ArticleName));
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("LastArticle")]
         public virtual async Task<ActionResult> LastArticle()
         {

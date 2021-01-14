@@ -1,14 +1,11 @@
 ﻿using KnowledgeApi.Models;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Driver;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace KnowledgeApi.Services
 {
-        public class BaseMongoRepository<TModel>
+    public class BaseMongoRepository<TModel>
         where TModel : MongoBaseModel
         {
             private readonly IMongoCollection<TModel> mongoCollection;
