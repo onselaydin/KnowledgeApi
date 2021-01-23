@@ -49,7 +49,7 @@ namespace KnowledgeApi.Services
                     new Claim(ClaimTypes.Role, "Admin"),
                     new Claim(ClaimTypes.Version,"V3.1")
                 }),
-                Expires = DateTime.UtcNow.AddDays(2),
+                Expires = DateTime.UtcNow.AddYears(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature) //HmacSha256Signature //HmacSha256
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
@@ -67,6 +67,11 @@ namespace KnowledgeApi.Services
             _user.InsertOne(model);
             return usr;
         }
+
+        //public User RefreshToken()
+        //{
+
+        //}
 
         public User Authenticate(string userName, string password)
         {
