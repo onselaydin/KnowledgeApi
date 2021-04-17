@@ -22,7 +22,7 @@ namespace KnowledgeApi.Services
            // _articletype = database.GetCollection<ArtType>("arttypes");
         }
 
-        public async Task<List<Article>> GetTopTakeArticles(int TakeValue)
+        public async Task<List<Article>> GetTopTakeArticles()//(int TakeValue)
         {
             //var articles = await _article.AsQueryable().OrderByDescending(x => x.Id).Take(TakeValue).ToListAsync();
             //return await _article.Find(x => true).SortByDescending(x => x.Dates).Limit(limit).ToListAsync();
@@ -41,7 +41,7 @@ namespace KnowledgeApi.Services
                                       Dates = a.Dates
                                   })
                             .OrderByDescending(o => o.Dates)
-                            .Take(TakeValue)
+                            //.Take(TakeValue)
                             .ToListAsync();
 
             // var articles = from a in _article.AsQueryable<Article>() select a;

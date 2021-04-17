@@ -22,7 +22,7 @@ namespace KnowledgeApi.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult> GetAll()
         {
-            var articles = await _articleService.GetTopTakeArticles(5);
+            var articles = await _articleService.GetTopTakeArticles();
             return Ok(articles);
         }
 
